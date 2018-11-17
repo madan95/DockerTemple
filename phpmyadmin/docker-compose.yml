@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_container
+    restart: always
+    networks:
+      - traffic
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traffic"
+      - "traefik.frontend.rule=Host:${PHPMYADMIN_DOMAIN}.${BASE_URL}"
+      - "traefik.port=80"
+networks:
+  traffic:
+    external: true
