@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    container_name: database_container
+    image: mariadb  # Pull mysql image from Docker Hub
+    ports:  # Set up ports exposed for other containers to connect to
+      - "3306:3306"
+    environment:  # Set up mysql database name and password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - traffic
+networks:
+  traffic:
+    external: true
