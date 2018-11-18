@@ -1,3 +1,8 @@
 database/data/*
 example_project_1/www/*
 traffic/acme.json
+.env
+database/.env
+phpmyadmin/.env
+example_project_1/.env
+traffic/.env
